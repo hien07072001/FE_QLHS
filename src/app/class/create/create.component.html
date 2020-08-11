@@ -1,0 +1,41 @@
+<h2>Add Class</h2>
+
+<form [formGroup]="classForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>
+      Code Class
+      <br>
+      <input type="text" formControlName="code_Cl"/>
+    </label>
+  </div>
+
+  <div>
+    <label>
+      Name
+      <br>
+      <input type="text" formControlName="name_Cl"/>
+    </label>
+  </div>
+
+  <div>
+    <label>
+      Hours
+      <br>
+      <input type="text" formControlName="hours"/>
+    </label>
+  </div>
+
+  <div>
+    <label>
+      Note
+      <br>
+      <input type="text" formControlName="note"/>
+    </label>
+  </div>
+
+<br/>
+  <button type="submit">Add class</button>
+  <br/>
+  <a [routerLink]="['/list-class']">List Class</a>
+
+</form>

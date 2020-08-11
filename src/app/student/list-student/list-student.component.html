@@ -1,0 +1,44 @@
+
+<div>{{value}}</div>
+<div class="card">
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4"> List Student</h3>
+  <div class="card-body">
+    <div id="table" class="table-editable">
+      <span class="table-add float-left mb-3 mr-2">
+        <a [routerLink]="['/create-student']">Add Class</a></span>
+      <table class="table table-bordered table-responsive-md table-striped text-center">
+        <thead>
+        <tr>
+          <th class="text-center">Code </th>
+          <th class="text-center">Name </th>
+          <th class="text-center">Age</th>
+          <th class="text-center">Phone</th>
+          <th class="text-center">Email</th>
+          <th class="text-center">Note</th>
+          <th class="text-center">Address</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let list of studentList; index as i">
+          <td class="pt-3-half">
+            {{list.code_SV}}
+          </td>
+          <td class="pt-3-half" >{{list.name_SV}}</td>
+          <td class="pt-3-half">{{list.age}}</td>
+          <td class="pt-3-half">{{list.phone}}</td>
+          <td class="pt-3-half">{{list.email}}</td>
+          <td class="pt-3-half">{{list.note}}</td>
+          <td class="pt-3-half">{{list.address}}</td>
+          <td>
+            <span class="table-remove"><button type="button" class="btn btn-info btn-rounded btn-sm my-0"
+                                               [routerLink]="['/edit-student',list.id]">Edit</button></span>
+            &nbsp;
+            <span class="table-remove"><button (click)="deleteStudent(i)">Delete</button></span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

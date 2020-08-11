@@ -1,0 +1,62 @@
+<form [formGroup]="classForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>
+      Id
+      <br>
+      <input type="text" formControlName="id">
+    </label>
+  </div>
+
+
+  <div>
+    <label>
+      Code
+      <br>
+      <input type="text" formControlName="code_Cl">
+    </label>
+  </div>
+  <div *ngIf="classForm.get('code_Cl').invalid && classForm.get('code_Cl').touched" style="color: red">
+    code_Cl is required and min length is 2
+  </div>
+
+  <div>
+    <label>
+      Name
+      <br>
+      <input type="text" formControlName="name_Cl">
+    </label>
+  </div>
+  <div *ngIf="classForm.get('name_Cl').invalid && classForm.get('name_Cl').touched" style="color: red">
+    classForm is required and min length is 2
+  </div>
+
+  <div>
+    <label>
+      hours
+      <br>
+      <input type="text" formControlName="hours" cols="30" rows="10"/>
+    </label>
+  </div>
+  <div *ngIf="classForm.get('hours').invalid && classForm.get('hours').touched" style="color: red">
+    hours is required and min length is 1
+  </div>
+
+  <div>
+    <label>
+      Note
+      <br>
+      <input type="text" formControlName="note" cols="30" rows="10"/>
+    </label>
+  </div>
+  <div *ngIf="classForm.get('note').invalid && classForm.get('note').touched" style="color: red">
+    Note is required and min length is 2
+  </div>
+
+<br/>
+
+  <button type="submit"> Add </button>
+
+  <span class="table-remove"><button type="button" class="btn btn-info btn-rounded btn-sm my-0"
+                                     [routerLink]="['/list-class']">List Class</button></span>
+  &nbsp;
+</form>
