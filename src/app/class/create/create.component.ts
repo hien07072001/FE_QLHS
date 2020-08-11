@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ClassService} from '../../service/class.service';
 import {ClassRoom} from '../../interface/ClassRoom';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-create',
@@ -18,14 +18,21 @@ export class CreateComponent implements OnInit {
               private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    // console.log('ABC');
     this.classForm = this.fb.group({
-      // id: new FormControl(''),
-      code_Cl: new FormControl(''),
-      hours: new FormControl(''),
-      name_Cl: new FormControl(''),
-      note: new FormControl(''),
-      });
+
+      code_Cl: new FormControl('',
+        [Validators.required,
+          Validators.minLength(2)]),
+      name_Cl: new FormControl('',
+        [Validators.required,
+          Validators.minLength(2)]),
+      hours: new FormControl('',
+        [Validators.required,
+          Validators.minLength(1)]),
+      note: new FormControl('',
+        [Validators.required,
+          Validators.minLength(2)]),
+    });
   }
   onSubmit() {
     const classRoom: ClassRoom = {
@@ -35,9 +42,7 @@ export class CreateComponent implements OnInit {
       hours: this.classForm.value.hours,
       note: this.classForm.value.note,
     };
-    // console.log(this.objectiveForm.value);
     this.classService.addClass(classRoom).subscribe(() => {
-
       this.isSuccess = false;
     }, error => {
       this.isSuccess = true;

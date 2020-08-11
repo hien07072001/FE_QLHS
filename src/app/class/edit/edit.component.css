@@ -1,0 +1,15 @@
+
+h1{
+  text-align: center;
+  color: #9cadde;
+}
+.tableStyle {
+  width: 5%;
+  padding-left: 10px;
+  margin-left: 20px;
+  color: darkgreen;
+}
+input[type=text] {
+  width: 700%;
+  padding: 12px 20px;
+}

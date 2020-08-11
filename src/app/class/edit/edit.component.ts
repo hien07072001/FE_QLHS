@@ -25,20 +25,11 @@ export class EditComponent implements OnInit {
     console.log('asd');
     this.classForm = new FormGroup({
       id: new FormControl(''),
-      code_Cl: new FormControl('',
-          [Validators.required,
-            Validators.minLength(2)]),
-      name_Cl: new FormControl('',
-          [Validators.required,
-            Validators.minLength(2)]),
-      hours: new FormControl('',
-          [Validators.required,
-            Validators.minLength(1)]),
-      note: new FormControl('',
-          [Validators.required,
-            Validators.minLength(2)]),
-      }
-    );
+      code_Cl: new FormControl(''),
+      hours: new FormControl(''),
+      name_Cl: new FormControl(''),
+      note: new FormControl(''),
+      });
 
     const id = +this.route.snapshot.paramMap.get('id');
     this.classService.getClassById(id)
@@ -49,7 +40,6 @@ export class EditComponent implements OnInit {
       }, error => {
         this.failMessage = 'Edit class fail';
       });
-    // debugger;
   }
 
   onSubmit() {

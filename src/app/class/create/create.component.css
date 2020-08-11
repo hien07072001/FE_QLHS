@@ -1,0 +1,19 @@
+
+
+h2{
+  text-align: center;
+}
+.tableStyle {
+  width: 5%;
+  padding-left: 10px;
+  margin-left: 300px;
+  color: darkgreen;
+}
+input[type=text] {
+  width: 700%;
+  padding: 12px 20px;
+  /*margin: 5px 0;*/
+  /*box-sizing: border-box;*/
+  border: none;
+  border-bottom: 2px solid darkslategrey;
+}

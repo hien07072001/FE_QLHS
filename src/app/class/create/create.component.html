@@ -1,41 +1,49 @@
 <h2>Add Class</h2>
+<a [routerLink]="['/list-class']">List Class</a>
 
-<form [formGroup]="classForm" (ngSubmit)="onSubmit()">
+<form class="tableStyle" [formGroup]="classForm" (ngSubmit)="onSubmit()">
   <div>
     <label>
-      Code Class
-      <br>
+      Code:
       <input type="text" formControlName="code_Cl"/>
     </label>
   </div>
+  <div *ngIf="classForm.get('code_Cl').invalid && classForm.get('code_Cl').touched" style="color: red">
+    Code is required and min length is 2
+  </div>
 
   <div>
     <label>
-      Name
-      <br>
+      Name:
       <input type="text" formControlName="name_Cl"/>
     </label>
   </div>
+  <div *ngIf="classForm.get('name_Cl').invalid && classForm.get('name_Cl').touched" style="color: red">
+    classForm is required and min length is 2
+  </div>
 
   <div>
     <label>
-      Hours
-      <br>
+      Hours:
       <input type="text" formControlName="hours"/>
     </label>
   </div>
+  <div *ngIf="classForm.get('hours').invalid && classForm.get('hours').touched" style="color: red">
+    Hours is required and min length is 1
+  </div>
 
   <div>
     <label>
-      Note
-      <br>
+      Note:
       <input type="text" formControlName="note"/>
     </label>
   </div>
+  <div *ngIf="classForm.get('note').invalid && classForm.get('note').touched" style="color: red">
+    Note is required and min length is 2
+  </div>
 
-<br/>
-  <button type="submit">Add class</button>
+
   <br/>
-  <a [routerLink]="['/list-class']">List Class</a>
-
+  <button type="submit">Add</button>
+  <br/>
 </form>
